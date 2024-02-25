@@ -1,4 +1,4 @@
-Todo Lits
+Todo lists
 
 ## Getting Started
 

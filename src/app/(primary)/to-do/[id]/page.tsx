@@ -22,6 +22,10 @@ const ToDoList = () => {
         dispatch(updateToDoListResources(parseInt(id!), !val))
     }
 
+    // if (!todoTask) {
+    //     return 'Loading...';
+    // }
+
     return (
     <div className="max-w-screen-xl mx-auto my-10">
         <div className="mx-auto w-6/12 p-4 gap-2 border text-center rounded">
