@@ -68,7 +68,7 @@ export function getResources(params: Params) {
 
             dispatch(getTodoListsReducer(resources));
         } catch (error) {
-            console.error("Error fetching card resources:", error);
+            console.error("Error", error);
         }
     };
 }
@@ -82,7 +82,7 @@ export function getOneToDoListResources(id: number) {
 
             dispatch(getOneTodoListReducer(resources));
         } catch (error) {
-            console.error("Error fetching card resources:", error);
+            console.error("Error:", error);
         }
     };
 }
@@ -92,11 +92,17 @@ export function updateToDoListResources(id: number, status: boolean) {
         try {
             const response = await update(id, status)
 
-            const resources: todo = response;
+            const resources: todo = response.data;
+
+            console.log(response);
+
+            if(response.status === 200){
+                alert('Update Succesful')
+            }
 
             dispatch(updateTodoListReducer(resources));
         } catch (error) {
-            console.error("Error fetching card resources:", error);
+            console.error("Error:", error);
         }
     };
 }

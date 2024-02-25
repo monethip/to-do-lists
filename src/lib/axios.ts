@@ -21,10 +21,6 @@ export const loginToDoList = async (user: LoginType) => {
     return res;
 }
 
-export const logout = async () => {
-    localStorage.removeItem("user")
-}
-
 //fetch to-do lists
 export const getTodoLists = async (params: Params) => {
     const res = await axiosInstance.get(`/todos/?limit=${params.limit}&skip=${params.skip}`)
@@ -40,5 +36,5 @@ export const getOneTodoList = async (id: number) => {
 //change status
 export const update = async (id: number, complete: boolean) => {
     const res = await axiosInstance.patch(`/todos/${id}`, { complete: complete })
-    return res.data;
+    return res
 }
