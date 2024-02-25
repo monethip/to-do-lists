@@ -1,21 +1,22 @@
+"use client";
+
 import '@/app/globals.css';
-import type { Metadata } from "next";
+import { Providers } from '../../redux/provider';
 
-export const metadata: Metadata = {
-    title: "To Do List",
-    description: "for  productivity"
-}
 
-export default function RootLayout({
+export default function CustomLayout({
     children,
 }: {
     children: React.ReactNode
 }) {
     return (
+        <Providers>
             <html lang="en">
                 <body className="">
                     {children}
                 </body>
             </html>
+        </Providers>
+
     )
 }
