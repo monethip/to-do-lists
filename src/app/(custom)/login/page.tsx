@@ -38,7 +38,7 @@ export default function LoginPage() {
     return (
         <div className="max-w-screen-xl mx-auto min-h-screen flex items-center justify-center">
             <div className="text-center p-4 w-9/12 md:w-6/12">
-                <p>Login</p>
+                <p className="text-xl font-bold text-primary mb-8">Login</p>
                 <form onSubmit={handleSubmit} className="flex flex-col items-center justify-center gap-4">
                     <input type="text" name="username" className="bg-gray-50 border border-gray-300 rounded text-gray-900 text-sm block w-full p-2.5" placeholder="Username" required />
                     <input type="password" name="password" className="bg-gray-50 border border-gray-300 rounded text-gray-900 text-sm block w-full p-2.5" placeholder="Password" required />
