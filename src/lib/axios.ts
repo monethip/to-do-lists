@@ -34,7 +34,7 @@ export const getOneTodoList = async (id: number) => {
 }
 
 //change status
-export const update = async (id: number, complete: boolean) => {
-    const res = await axiosInstance.patch(`/todos/${id}`, { complete: complete })
+export const update = async (id: number, completed: boolean) => {
+    const res = await axiosInstance.patch(`/todos/${id}`, { completed: completed })
     return res
 }
