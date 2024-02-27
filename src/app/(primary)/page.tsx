@@ -21,22 +21,7 @@ export default function MainPage() {
     const limit = data?.limit
     const total = data?.total
 
-    //test
 
-    const searchParams = useSearchParams()
-
-    const search = searchParams?.get('skip')
-
-    const createQueryString = useCallback(
-        (name: string, value: string) => {
-          const params = new URLSearchParams(searchParams?.toString())
-          params.set(name, value)
-     
-          return params.toString()
-        },
-        [searchParams]
-      )
-    
     //
     const paginate = (pageNumber: number) => {
         const newSkip = (pageNumber - 1) * limit;
@@ -45,22 +30,14 @@ export default function MainPage() {
         dispatch(getResources({ limit, skip: newSkip })).then(() => {
             setLoading(false);
         });
-        router.push(pathName + '?' + createQueryString('limit', limit.toString()))
-        // const params = new URLSearchParams(searchParams?.toString())
-        // params.set('skip', newSkip.toString())
+        // router.push(pathName + '?' + createQueryString('limit', limit.toString()))
         window.history.pushState(null, '', `?skip=${newSkip.toString()}`);
     };
 
     useEffect(() => {
-        // On initial render, extract skip parameter from URL and calculate current page
-        const initialSkip = 90;
-        const initialPage = Math.floor(initialSkip / limit) + 1;
-        setSkip(initialSkip);
-        setCurrentPage(initialPage);
-    }, []);
-
-    useEffect(() => {
         paginate(currentPage);
+
+
     }, [currentPage]);
 
     const handleToDoDetail = (id: number) => {
@@ -73,7 +50,6 @@ export default function MainPage() {
 
     return (
         <div className='max-w-screen-xl mx-auto p-4 flex flex-col items-center min-h-screen'>
-            {search}
             {loading ? <Loading /> :
                 <>
                     <div className='my-8 text-xl'>Your Tasks</div>

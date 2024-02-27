@@ -1,6 +1,5 @@
 "use client"
 
-import withAuth from "@/components/withAuth";
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from '@/redux/store';
 import { getOneToDoListResources, updateToDoListResources } from "@/redux/todolist";
